@@ -39,12 +39,14 @@
   border-radius: 16px;
   padding: 28px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
 .contacto-card h2 {
   margin: 0 0 20px;
   color: #025361;
   font-size: 24px;
+  line-height: 1.3;
 }
 
 .contacto-item + .contacto-item {
@@ -61,11 +63,13 @@
   margin: 0;
   color: #4b4b4b;
   line-height: 1.6;
+  word-break: break-word;
 }
 
 .contacto-item a {
   color: #025361;
   text-decoration: none;
+  word-break: break-word;
 }
 
 .contacto-item a:hover {
@@ -85,6 +89,7 @@
   cursor: pointer;
   transition: 0.2s ease;
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .contacto-links li:last-child {
@@ -96,48 +101,41 @@
   transform: translateX(4px);
 }
 
-.ubicacion {
-  margin-top: 28px;
-}
+/* OFICINA */
 
-.mapa-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 260px;
-  border: 1px dashed #c9d6da;
-  border-radius: 14px;
-  background: #f8fbfc;
-  text-align: center;
-  color: #607176;
-  padding: 20px;
-}
-
-.oficina-img-wrapper,
-.mapa-img {
+.oficina-img-wrapper {
   width: 100%;
-}
-
-.oficina-img,
-.mapa-img {
-  width: 100%;
-  display: block;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 1px solid #dfe7ea;
 }
 
 .oficina-img {
-  max-height: 360px;
-}
-
-.map-link {
+  width: 100%;
   display: block;
-  transition: 0.2s ease;
+  border-radius: 14px;
+  border: 1px solid #dfe7ea;
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+  max-height: none;
 }
 
-.map-link:hover {
-  transform: translateY(-2px);
+/* MAPA */
+
+.mapa-embed {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #dfe7ea;
+  background: #f8fbfc;
+  aspect-ratio: 16 / 10;
+}
+
+.mapa-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .mapa-texto {
@@ -145,6 +143,7 @@
   color: #607176;
   text-align: center;
   line-height: 1.6;
+  font-size: 15px;
 }
 
 @media (max-width: 992px) {
@@ -170,17 +169,16 @@
     font-size: 22px;
   }
 
-  /* CORREGIR IMÁGENES */
-  .oficina-img {
-    max-height: 280px;
+  .oficina-img,
+  .mapa-embed {
+    aspect-ratio: 4 / 3;
   }
 
-  .mapa-placeholder {
-    min-height: 200px;
+  .mapa-texto {
+    font-size: 14px;
   }
 }
 
-/* Agregar breakpoint para móviles pequeños */
 @media (max-width: 480px) {
   .contacto-page {
     padding: 32px 0 40px;
@@ -188,29 +186,32 @@
 
   .contacto-intro {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .contacto-card {
     padding: 18px;
+    border-radius: 14px;
   }
 
   .contacto-card h2 {
     font-size: 20px;
+    margin-bottom: 16px;
   }
 
   .contacto-item h3 {
     font-size: 16px;
   }
 
-  /* Asegurar imágenes responsive */
-  .oficina-img, .mapa-img {
-    max-height: 220px;
+  .contacto-item p,
+  .contacto-links li,
+  .mapa-texto {
+    font-size: 14px;
   }
 
-  .contacto-intro {
-    font-size: 13px;
+  .oficina-img,
+  .mapa-embed {
+    aspect-ratio: 1 / 1;
   }
 }
-
-/**ARREGLAR RESPONSIVE DE LA IMAGEN DE LA OFICINA Y EL MAPA, QUE SE VEAN BIEN EN MOVIL**/
 

@@ -1,0 +1,85 @@
+/* ===================== */
+/* REMUVID */
+/* ===================== */
+
+.remuvid-page {
+  padding: 56px 0 64px;
+}
+
+.remuvid-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.remuvid-intro {
+  max-width: 860px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.remuvid-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.remuvid-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.remuvid-card h2 {
+  margin: 0 0 18px;
+  color: #025361;
+  font-size: 26px;
+}
+
+.remuvid-card p {
+  margin: 0;
+  color: #4b4b4b;
+  line-height: 1.75;
+}
+
+.remuvid-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.remuvid-nota {
+  margin-top: 18px !important;
+  color: #607176 !important;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .remuvid-page {
+    padding: 42px 0 48px;
+  }
+
+  .remuvid-intro {
+    font-size: 16px;
+  }
+
+  .remuvid-card {
+    padding: 24px;
+  }
+
+  .remuvid-card h2 {
+    font-size: 22px;
+  }
+
+  .remuvid-actions {
+    flex-direction: column;
+  }
+
+  .remuvid-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,64 @@
+/* ===================== */
+/* BOTONES */
+/* ===================== */
+
+.hero-btn,
+.btn-contacto,
+.remuvid-btn,
+.ventanilla-btn,
+.tramite-item a,
+.digital-card a,
+.digital-card button,
+.armonizacion-doc-card a,
+.armonizacion-back-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+/* PRIMARIOS */
+.hero-btn-primary,
+.btn-contacto,
+.remuvid-btn-primary,
+.ventanilla-btn-primary,
+.tramite-item a,
+.digital-card a,
+.digital-card button,
+.armonizacion-doc-card a {
+  background: #025361;
+  color: #ffffff;
+  border: none;
+}
+
+.hero-btn-primary:hover,
+.btn-contacto:hover,
+.remuvid-btn-primary:hover,
+.ventanilla-btn-primary:hover,
+.tramite-item a:hover,
+.digital-card a:hover,
+.digital-card button:hover,
+.armonizacion-doc-card a:hover {
+  background: #006b79;
+  transform: translateY(-2px);
+}
+
+/* SECUNDARIOS / OUTLINE */
+.hero-btn-secondary,
+.ventanilla-btn-secondary,
+.armonizacion-back-btn {
+  background: #ffffff;
+  color: #025361;
+  border: 1px solid #cfdcdf;
+}
+
+.hero-btn-secondary:hover,
+.ventanilla-btn-secondary:hover,
+.armonizacion-back-btn:hover {
+  background: #f4f8f9;
+  transform: translateY(-2px);
+}

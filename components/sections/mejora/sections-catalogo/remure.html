@@ -1,0 +1,49 @@
+<section class="remure-page">
+  <div class="container">
+
+    <div class="remure-hero">
+      <p class="seccion-etiqueta">REMURE</p>
+      <h1 class="titulo-principal">Registro Municipal de Regulaciones</h1>
+      <p class="remure-intro">
+        Consulta regulaciones, leyes, reglamentos, acuerdos y documentos normativos
+        organizados por categoría para facilitar su búsqueda y revisión.
+      </p>
+    </div>
+
+    <section class="remure-toolbar">
+      <div class="remure-toolbar-top">
+        <div class="remure-chips" id="remureChips"></div>
+
+        <label class="remure-search">
+          <span class="sr-only">Buscar legislación</span>
+          <input
+            type="search"
+            id="remureSearch"
+            placeholder="Buscar legislación, reglamento, acuerdo o manual..."
+          />
+        </label>
+      </div>
+
+      <div class="remure-toolbar-bottom">
+        <p class="remure-results-count" id="remureResultsCount">0 resultados</p>
+
+        <div class="remure-toolbar-actions">
+          <button type="button" class="remure-secondary-btn" id="remureExpandAll">
+            Expandir todo
+          </button>
+
+          <button type="button" class="remure-secondary-btn" id="remureCollapseAll">
+            Contraer todo
+          </button>
+
+          <button type="button" class="remure-clear-btn" id="remureClearSearch">
+            Limpiar búsqueda
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="remure-content" id="remureContent"></section>
+
+  </div>
+</section>

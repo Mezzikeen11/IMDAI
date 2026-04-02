@@ -1,0 +1,243 @@
+/* ===================== */
+/* VENTANILLA UNICA */
+/* ===================== */
+
+.ventanilla-page {
+  padding: 56px 0 64px;
+}
+
+.ventanilla-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ventanilla-intro {
+  max-width: 920px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.ventanilla-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.ventanilla-bloque + .ventanilla-bloque {
+  margin-top: 40px;
+}
+
+.ventanilla-bloque-header {
+  margin-bottom: 18px;
+}
+
+.ventanilla-bloque-header h2 {
+  margin: 0 0 10px;
+  color: #025361;
+  font-size: 30px;
+}
+
+.ventanilla-bloque-header p {
+  margin: 0;
+  color: #5c6b70;
+  line-height: 1.65;
+}
+
+.ventanilla-acordeones {
+  display: grid;
+  gap: 16px;
+}
+
+.ventanilla-accordion {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.ventanilla-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #08333b;
+  background: #f8fbfc;
+}
+
+.ventanilla-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.ventanilla-panel {
+  padding: 0 24px 24px;
+}
+
+.tramite-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #edf2f3;
+}
+
+.tramite-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tramite-item h3 {
+  margin: 0 0 8px;
+  color: #025361;
+  font-size: 20px;
+}
+
+.tramite-item p {
+  margin: 0;
+  color: #4b4b4b;
+  line-height: 1.6;
+}
+
+.tramite-item a {
+  white-space: nowrap;
+}
+
+.tramites-digitales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.digital-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.digital-card h3 {
+  margin: 0 0 12px;
+  color: #025361;
+  font-size: 22px;
+}
+
+.digital-card p {
+  margin: 0 0 18px;
+  color: #4b4b4b;
+  line-height: 1.65;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ventanilla-bloque + .ventanilla-bloque {
+    margin-top: 32px;
+  }
+
+  .ventanilla-bloque-header h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ventanilla-page {
+    padding: 42px 0 48px;
+  }
+
+  .ventanilla-intro {
+    font-size: 16px;
+  }
+
+  .ventanilla-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ventanilla-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ventanilla-bloque-header h2 {
+    font-size: 24px;
+  }
+
+  .ventanilla-accordion summary {
+    font-size: 18px;
+    padding: 18px 20px;
+  }
+
+  .ventanilla-panel {
+    padding: 0 20px 20px;
+  }
+
+  .tramite-item {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .tramite-item a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .ventanilla-page {
+    padding: 32px 0 40px;
+  }
+
+  .ventanilla-intro {
+    font-size: 15px;
+  }
+
+  .ventanilla-bloque-header h2 {
+    font-size: 22px;
+  }
+
+  .ventanilla-accordion summary {
+    font-size: 16px;
+    padding: 16px 18px;
+  }
+
+  .ventanilla-panel {
+    padding: 0 18px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ventanilla-page {
+    padding: 24px 0 32px;
+  }
+
+  .ventanilla-intro {
+    font-size: 14px;
+  }
+
+  .ventanilla-bloque-header h2 {
+    font-size: 20px;
+  }
+
+  .ventanilla-bloque-header p {
+    font-size: 14px;
+  }
+
+  .ventanilla-accordion summary {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  .ventanilla-panel {
+    padding: 0 16px 16px;
+  }
+
+  .digital-card p {
+    font-size: 14px;
+  }
+}

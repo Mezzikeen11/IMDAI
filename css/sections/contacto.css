@@ -1,0 +1,216 @@
+/* ===================== */
+/* CONTACTO */
+/* ===================== */
+
+.contacto-page {
+  padding: 56px 0 64px;
+}
+
+.contacto-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.contacto-intro {
+  max-width: 850px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.contacto-info,
+.contacto-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contacto-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.contacto-card h2 {
+  margin: 0 0 20px;
+  color: #025361;
+  font-size: 24px;
+}
+
+.contacto-item + .contacto-item {
+  margin-top: 18px;
+}
+
+.contacto-item h3 {
+  margin: 0 0 6px;
+  color: #08333b;
+  font-size: 17px;
+}
+
+.contacto-item p {
+  margin: 0;
+  color: #4b4b4b;
+  line-height: 1.6;
+}
+
+.contacto-item a {
+  color: #025361;
+  text-decoration: none;
+}
+
+.contacto-item a:hover {
+  text-decoration: underline;
+}
+
+.contacto-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contacto-links li {
+  padding: 14px 0;
+  border-bottom: 1px solid #edf2f3;
+  color: #25434a;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-weight: 500;
+}
+
+.contacto-links li:last-child {
+  border-bottom: none;
+}
+
+.contacto-links li:hover {
+  color: #025361;
+  transform: translateX(4px);
+}
+
+.ubicacion {
+  margin-top: 28px;
+}
+
+.mapa-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  border: 1px dashed #c9d6da;
+  border-radius: 14px;
+  background: #f8fbfc;
+  text-align: center;
+  color: #607176;
+  padding: 20px;
+}
+
+.oficina-img-wrapper,
+.mapa-img {
+  width: 100%;
+}
+
+.oficina-img,
+.mapa-img {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid #dfe7ea;
+}
+
+.oficina-img {
+  max-height: 360px;
+}
+
+.map-link {
+  display: block;
+  transition: 0.2s ease;
+}
+
+.map-link:hover {
+  transform: translateY(-2px);
+}
+
+.mapa-texto {
+  margin-top: 14px;
+  color: #607176;
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacto-page {
+    padding: 42px 0 48px;
+  }
+
+  .contacto-intro {
+    font-size: 16px;
+  }
+
+  .contacto-card {
+    padding: 22px;
+  }
+
+  .contacto-card h2 {
+    font-size: 22px;
+  }
+
+  /* CORREGIR IMÁGENES */
+  .oficina-img {
+    max-height: 280px;
+  }
+
+  .mapa-placeholder {
+    min-height: 200px;
+  }
+}
+
+/* Agregar breakpoint para móviles pequeños */
+@media (max-width: 480px) {
+  .contacto-page {
+    padding: 32px 0 40px;
+  }
+
+  .contacto-intro {
+    font-size: 14px;
+  }
+
+  .contacto-card {
+    padding: 18px;
+  }
+
+  .contacto-card h2 {
+    font-size: 20px;
+  }
+
+  .contacto-item h3 {
+    font-size: 16px;
+  }
+
+  /* Asegurar imágenes responsive */
+  .oficina-img, .mapa-img {
+    max-height: 220px;
+  }
+
+  .contacto-intro {
+    font-size: 13px;
+  }
+}
+
+/**ARREGLAR RESPONSIVE DE LA IMAGEN DE LA OFICINA Y EL MAPA, QUE SE VEAN BIEN EN MOVIL**/
+

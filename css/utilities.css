@@ -1,0 +1,94 @@
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.titulo-principal,
+.hero-title,
+.logo,
+.hero-card h3,
+.ventanilla-bloque-header h2,
+.armonizacion-bloque-header h2,
+.contacto-card h2,
+.remuvid-card h2 {
+  font-weight: 700;
+}
+
+/* ETIQUETA REUTILIZABLE */
+.seccion-etiqueta {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(196, 247, 255, 0.08);
+  color: #025361;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* TITULO PRINCIPAL REUTILIZABLE */
+.titulo-principal {
+  text-align: center;
+  font-size: 34px;
+  line-height: 1.2;
+  color: #025361;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-principal {
+    font-size: 24px;
+  }
+}
+/* Clases responsivas adicionales */
+@media (max-width: 480px) {
+  .text-center {
+    text-align: left;
+  }
+
+  .p-20 {
+    padding: 15px;
+  }
+
+  .mt-20 {
+    margin-top: 15px;
+  }
+
+  .mb-20 {
+    margin-bottom: 15px;
+  }
+}
+
+/* Más clases responsivas */
+@media (max-width: 768px) {
+  .d-md-none {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .d-sm-none {
+    display: none;
+  }
+
+  .text-center {
+    text-align: left;
+  }
+}

@@ -1,0 +1,89 @@
+.sistema-detalle-page {
+  padding: 56px 0 64px;
+}
+
+.sistema-detalle-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sistema-detalle-intro {
+  max-width: 860px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.sistema-detalle-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.sistema-detalle-card h2 {
+  margin: 0 0 14px;
+  color: #025361;
+  font-size: 28px;
+}
+
+.sistema-detalle-card p {
+  margin: 0;
+  color: #4b4b4b;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.sistema-detalle-actions {
+  margin-top: 24px;
+}
+
+.sistema-detalle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #025361;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sistema-detalle-btn:hover {
+  background: #006b79;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .sistema-detalle-page {
+    padding: 42px 0 48px;
+  }
+
+  .sistema-detalle-intro {
+    font-size: 16px;
+  }
+
+  .sistema-detalle-card {
+    padding: 22px;
+  }
+
+  .sistema-detalle-card h2 {
+    font-size: 24px;
+  }
+
+  .sistema-detalle-card p {
+    font-size: 15px;
+  }
+
+  .sistema-detalle-btn {
+    width: 100%;
+  }
+}

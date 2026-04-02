@@ -1,0 +1,65 @@
+/* ===================== */
+/* TABLAS */
+/* ===================== */
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-table th,
+.details-table td {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  text-align: left;
+}
+
+.details-table th {
+  background-color: #025361;
+  color: white;
+}
+
+.details-table a {
+  display: inline-block;
+  background-color: #025361;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.details-table a:hover {
+  background-color: #007f8c;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .details-table th,
+  .details-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .details-table a {
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-table th,
+  .details-table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .details-table a {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+}

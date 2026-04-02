@@ -1,0 +1,159 @@
+/* ============================= */
+/* SISTEMA MUNICIPAL             */
+/* ============================= */
+
+.sistema-page {
+  padding: 56px 0 64px;
+}
+
+.sistema-hero {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.sistema-intro {
+  max-width: 920px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.sistema-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.sistema-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sistema-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  border-color: #cfdcdf;
+}
+
+.sistema-card:focus-visible {
+  outline: none;
+  border-color: #025361;
+  box-shadow: 0 0 0 3px rgba(0, 84, 97, 0.12);
+}
+
+.sistema-card-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sistema-card-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 84, 97, 0.08);
+  color: #025361;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.sistema-card h2 {
+  margin: 0;
+  color: #025361;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.sistema-card p {
+  margin: 0;
+  color: #5c6b70;
+  font-size: 15px;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.sistema-card-btn {
+  align-self: flex-start;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #025361;
+  border-radius: 10px;
+  background: #025361;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.sistema-card-btn:hover {
+  background: #006b79;
+  border-color: #006b79;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
+  .sistema-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sistema-page {
+    padding: 42px 0 48px;
+  }
+
+  .sistema-intro {
+    font-size: 16px;
+  }
+
+  .sistema-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .sistema-card h2 {
+    font-size: 21px;
+  }
+
+  .sistema-card p {
+    font-size: 15px;
+  }
+
+  .sistema-card-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sistema-page {
+    padding: 24px 0 36px;
+  }
+
+  .sistema-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .sistema-card-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .sistema-card-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}

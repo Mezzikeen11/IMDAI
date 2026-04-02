@@ -1,0 +1,296 @@
+/*-----------*/
+/* MANUALES DE ORGANIZACIÓN */
+/*-----------*/
+
+.estructuras-page {
+  padding: 56px 0 64px;
+}
+
+.estructura-hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.seccion-etiqueta {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #025361;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.estructura-hero h1 {
+  margin: 0 0 14px;
+  color: #025361;
+  font-size: 2.35rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.estructura-intro {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.estructura-org {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.estructura-toolbar {
+  padding: 24px;
+  border-bottom: 1px solid #eef2f3;
+  background: #ffffff;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 520px;
+  min-height: 52px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #334246;
+  border: 1px solid #d6e1e4;
+  border-radius: 14px;
+  background: #fbfcfc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.search-input:focus {
+  background: #ffffff;
+  border-color: #025361;
+  box-shadow: 0 0 0 3px rgba(0, 84, 97, 0.12);
+}
+
+.search-input::placeholder {
+  color: #8a989d;
+}
+
+.estructura-results {
+  margin: 14px 0 0;
+  text-align: center;
+  color: #5c6b70;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.estructura-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.estructura-table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+}
+
+.estructura-table thead th {
+  background: rgba(0, 84, 97, 0.08);
+  color: #025361;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+  padding: 15px 18px;
+  border-bottom: 1px solid #dfe7ea;
+  white-space: nowrap;
+}
+
+.estructura-table tbody td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #eef2f3;
+  color: #445055;
+  font-size: 15px;
+  line-height: 1.55;
+  vertical-align: middle;
+}
+
+.estructura-table tbody tr:nth-child(even) {
+  background: #fbfcfc;
+}
+
+.estructura-table tbody tr:hover {
+  background: #f3f8f9;
+}
+
+.estructura-table tbody td:first-child {
+  min-width: 460px;
+  font-weight: 700;
+  color: #334246;
+}
+
+.estructura-table tbody td:nth-child(2),
+.estructura-table tbody td:nth-child(3),
+.estructura-table tbody td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.estructura-table tbody td:last-child {
+  width: 170px;
+}
+
+.estructura-table td a:not(.btn-download) {
+  color: #025361;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.estructura-table td a:not(.btn-download):hover {
+  text-decoration: underline;
+}
+
+.estructura-org .btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #025361;
+  color: #ffffff;
+  border: none;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.estructura-org .btn-download:hover {
+  background: #006b79;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 84, 97, 0.18);
+}
+
+.estructura-empty {
+  padding: 28px 24px;
+  text-align: center;
+  color: #5c6b70;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .estructura-hero h1 {
+    font-size: 2rem;
+  }
+
+  .estructura-intro {
+    font-size: 16px;
+  }
+
+  .estructura-toolbar {
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .estructuras-page {
+    padding: 42px 0 48px;
+  }
+
+  .estructura-hero {
+    margin-bottom: 28px;
+  }
+
+  .estructura-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .estructura-intro {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .estructura-toolbar {
+    padding: 18px 16px;
+  }
+
+  .estructura-table-wrap {
+    overflow: visible;
+    padding: 16px;
+  }
+
+  .estructura-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 14px;
+  }
+
+  .estructura-table thead {
+    display: none;
+  }
+
+  .estructura-table tbody {
+    display: block;
+  }
+
+  .estructura-table tbody tr {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e1e7e9;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+  }
+
+  .estructura-table tbody td {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 0 12px;
+    border: none;
+    white-space: normal !important;
+  }
+
+  .estructura-table tbody td:last-child {
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  .estructura-table tbody td::before {
+    content: attr(data-label);
+    color: #025361;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .estructura-table tbody td:first-child {
+    min-width: 0;
+  }
+
+  .estructura-org .btn-download {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .estructura-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .search-input {
+    font-size: 14px;
+    min-height: 48px;
+  }
+
+  .estructura-results {
+    font-size: 13px;
+  }
+}

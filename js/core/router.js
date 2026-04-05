@@ -63,7 +63,7 @@ const ROUTE_CONFIG = [
   {
     match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
     css: ["css/sections/sections-catalogo/remtys.css"],
-    js: []
+    js: ["js/components/remtys.js"],
   },
   {
     match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure.html"),

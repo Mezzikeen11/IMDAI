@@ -45,7 +45,7 @@ const ROUTE_CONFIG = [
   },
   {
     match: (route) => route.includes("components/sections/mejora/sistema.html"),
-    css: ["css/sections/mejora.css"],
+    css: ["css/sections/sistema.css"],
     js: []
   },
 

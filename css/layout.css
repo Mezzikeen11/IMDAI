@@ -308,7 +308,6 @@
 /* ===================== */
 /* FOOTER */
 /* ===================== */
-
 .footer {
   background-color: #025361;
   color: white;
@@ -318,8 +317,8 @@
 .footer-top {
   display: flex;
   justify-content: space-between;
-  gap: 30px; /* Aumentamos el espacio entre columnas */
-  flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .footer-col h3 {
@@ -335,15 +334,15 @@
 
 .footer-social a {
   margin: 0 10px;
-  font-size: 40px; /* Aumentamos el tamaño de los íconos */
+  font-size: 40px;
   color: white;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
-  color: #025361; /* Cambiar color al pasar el ratón */
-  transform: scale(1.1); /* Agrandar el ícono ligeramente al pasar el ratón */
+  color: #d7b56d;
+  transform: scale(1.1);
 }
 
 .footer-col ul {
@@ -363,61 +362,56 @@
 }
 
 .footer-col ul li a:hover {
-  color: #025361;
+  color: #d7b56d;
 }
 
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 30px;
   border-top: 1px solid white;
-  padding-top: 10px;
-  flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
+  padding-top: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .footer-logo-left, .footer-logo-right {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Aumentamos el espacio entre los logos */
+  gap: 20px;
   flex-shrink: 0;
 }
 
 .footer-logo-img {
-  width: 150px; /* Ajustamos el tamaño del logo para ambos logos */
+  width: 150px;
   height: auto;
-  object-fit: contain; /* Mantiene la proporción de la imagen */
+  object-fit: contain;
 }
 
-/* Ajuste específico para logos diferentes en tamaño */
 .footer-logo-left img {
-  width: 160px; /* Le damos un poco más de tamaño al logo de IMDAI */
+  width: 160px;
 }
 
 .footer-logo-right img {
-  width: 230px; /* Ajustamos también el logo del municipio para que tenga el mismo tamaño */
+  width: 230px;
 }
 
 .footer-copy {
   font-size: 14px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .social-x {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
   color: #ffffff;
-  font-size: 28px;
-  font-weight: 800;
   text-decoration: none;
 }
 
-/* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
@@ -435,7 +429,11 @@
   }
 
   .footer-logo-img {
-    width: 120px; /* Ajuste de tamaño para pantallas pequeñas */
+    width: 120px;
+  }
+
+  .footer-copy {
+    margin-top: 10px;
   }
 }
 

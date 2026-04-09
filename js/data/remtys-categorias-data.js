@@ -58,41 +58,5 @@ export const remtysCategorias = [
     nombre: "Licencia de construcción",
     descripcion: "Accede a trámites y permisos relacionados con licencias, obra nueva, remodelación y construcción.",
     total: 0
-  },
-  {
-    id: "registro-civil-identidad",
-    nombre: "Registro civil e identidad",
-    descripcion: "Consulta trámites relacionados con actas, matrimonios, divorcios, identidad y constancias registrales.",
-    total: 1
-  },
-  {
-    id: "catastro-propiedad",
-    nombre: "Catastro y propiedad",
-    descripcion: "Accede a trámites y servicios vinculados con información catastral, predios, propiedad y certificaciones.",
-    total: 0
-  },
-  {
-    id: "proteccion-civil-seguridad",
-    nombre: "Protección civil y seguridad",
-    descripcion: "Consulta autorizaciones, dictámenes, programas internos y servicios vinculados con protección civil y seguridad.",
-    total: 0
-  },
-  {
-    id: "movilidad-transito",
-    nombre: "Movilidad y tránsito",
-    descripcion: "Accede a trámites y servicios relacionados con vehículos, tránsito, permisos, boletas e infracciones.",
-    total: 0
-  },
-  {
-    id: "transparencia-acceso-informacion",
-    nombre: "Transparencia y acceso a la información",
-    descripcion: "Consulta solicitudes de información pública, protección de datos personales y derechos relacionados.",
-    total: 0
-  },
-  {
-    id: "asesoria-juridica-justicia-civica",
-    nombre: "Asesoría jurídica, conciliación y justicia cívica",
-    descripcion: "Accede a servicios y trámites relacionados con asesoría jurídica, conciliación y justicia cívica.",
-    total: 0
   }
 ];

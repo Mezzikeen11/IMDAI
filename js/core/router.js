@@ -86,65 +86,6 @@ const ROUTE_CONFIG = [
   js: ["js/components/remtys-detalle.js"]
 },
 
-/* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
-{
-  match: (route) => route.includes("components/sections/mejora/sections-documentacion/lineamientos.html"),
-  css: ["css/sections/sections-documentacion/lineamientos.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-organizacion.html"),
-  css: ["css/sections/sections-documentacion/manuales-organizacion.css"],
-  js: ["js/components/manuales-organizacion.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-procedimientos.html"),
-  css: ["css/sections/sections-documentacion/manuales-procedimientos.css"],
-  js: ["js/components/manuales-procedimientos.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-documentacion/protocolos.html"),
-  css: ["css/sections/sections-documentacion/protocolos.css"],
-  js: ["js/components/protocolos.js"]
-},
-
-/* ---------- MEJORA: SECTIONS-SISTEMA ---------- */
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/agenda.html"),
-  css: ["css/sections/sections-sistema/agenda.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/air.html"),
-  css: ["css/sections/sections-sistema/air.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/catalogo.html"),
-  css: ["css/sections/sections-sistema/catalogo.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/consulta-publica.html"),
-  css: ["css/sections/sections-sistema/consulta-publica.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/programa-anual.html"),
-  css: ["css/sections/sections-sistema/programa-anual.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/lineamientos-operativos.html"),
-  css: ["css/sections/mejora.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-sistema/programas-especificos.html"),
-  css: ["css/sections/mejora.css"],
-  js: []
-},
-
   /* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
   {
     match: (route) => route.includes("components/sections/mejora/sections-documentacion/lineamientos.html"),

@@ -1,0 +1,49 @@
+<section class="remtys-detalle-page">
+  <div class="container">
+
+    <header class="remtys-detalle-hero">
+      <p class="seccion-etiqueta">REMTYS</p>
+      <h1 class="titulo-principal" id="remtysDetalleTitulo">Detalle del trámite o servicio</h1>
+      <p class="remtys-detalle-intro" id="remtysDetalleDescripcion">
+        Consulta la información detallada del registro seleccionado.
+      </p>
+    </header>
+
+    <section class="remtys-detalle-toolbar">
+      <button
+        type="button"
+        class="remtys-detalle-back-btn"
+        id="remtysBackToCategoria"
+      >
+        Volver a la categoría
+      </button>
+    </section>
+
+    <section class="remtys-tabs-card">
+      <div class="remtys-tabs" id="remtysTabs">
+        <button type="button" class="remtys-tab is-active" data-tab="sujeto-obligado">
+          SUJETO OBLIGADO
+        </button>
+        <button type="button" class="remtys-tab" data-tab="politicas-lineamientos">
+          POLÍTICAS Y LINEAMIENTOS
+        </button>
+        <button type="button" class="remtys-tab" data-tab="requisitos">
+          REQUISITOS
+        </button>
+      </div>
+
+      <div class="remtys-tab-panel is-active" id="tab-sujeto-obligado">
+        <ul class="remtys-detail-list" id="remtysSujetoObligadoList"></ul>
+      </div>
+
+      <div class="remtys-tab-panel" id="tab-politicas-lineamientos">
+        <ul class="remtys-detail-list" id="remtysPoliticasList"></ul>
+      </div>
+
+      <div class="remtys-tab-panel" id="tab-requisitos">
+        <div id="remtysRequisitosContent"></div>
+      </div>
+    </section>
+
+  </div>
+</section>

@@ -63,7 +63,7 @@ export const remtysCategorias = [
     id: "registro-civil-identidad",
     nombre: "Registro civil e identidad",
     descripcion: "Consulta trámites relacionados con actas, matrimonios, divorcios, identidad y constancias registrales.",
-    total: 0
+    total: 1
   },
   {
     id: "catastro-propiedad",

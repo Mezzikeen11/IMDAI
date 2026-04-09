@@ -1,0 +1,219 @@
+.remtys-categoria-page {
+  padding: 56px 0 64px;
+}
+
+.remtys-categoria-hero {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.remtys-categoria-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.remtys-categoria-toolbar {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+}
+
+.remtys-categoria-search {
+  display: flex;
+  justify-content: center;
+}
+
+.remtys-categoria-search-input {
+  width: 100%;
+  max-width: 520px;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid #d6e1e4;
+  border-radius: 14px;
+  background: #fbfcfc;
+  color: #334246;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.remtys-categoria-search-input:focus {
+  background: #ffffff;
+  border-color: #025361;
+  box-shadow: 0 0 0 3px rgba(0, 84, 97, 0.12);
+}
+
+.remtys-categoria-toolbar-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.remtys-categoria-results {
+  margin: 0;
+  color: #5c6b70;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remtys-categoria-back-btn {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #d6e1e4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #025361;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.remtys-categoria-back-btn:hover {
+  background: #f3f8f9;
+  border-color: #025361;
+  transform: translateY(-1px);
+}
+
+.remtys-categoria-list {
+  display: grid;
+  gap: 18px;
+}
+
+.remtys-item-card {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+
+.remtys-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.remtys-item-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.remtys-item-type {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.remtys-item-type.tipo-tramite {
+  background: rgba(0, 84, 97, 0.08);
+  color: #025361;
+}
+
+.remtys-item-type.tipo-servicio {
+  background: #f3f7f8;
+  color: #4f5f64;
+}
+
+.remtys-item-card h2 {
+  margin: 0;
+  color: #025361;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.remtys-item-card p {
+  margin: 0;
+  color: #5c6b70;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.remtys-item-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remtys-item-btn {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #025361;
+  border-radius: 10px;
+  background: #025361;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.remtys-item-btn:hover {
+  background: #006b79;
+  border-color: #006b79;
+  transform: translateY(-1px);
+}
+
+.remtys-categoria-empty {
+  background: #ffffff;
+  border: 1px solid #e1e7e9;
+  border-radius: 18px;
+  padding: 26px;
+  text-align: center;
+  color: #5c6b70;
+  line-height: 1.7;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 768px) {
+  .remtys-categoria-page {
+    padding: 42px 0 48px;
+  }
+
+  .remtys-categoria-intro {
+    font-size: 16px;
+  }
+
+  .remtys-categoria-toolbar,
+  .remtys-item-card {
+    padding: 20px;
+  }
+
+  .remtys-item-card {
+    grid-template-columns: 1fr;
+  }
+
+  .remtys-item-actions {
+    justify-content: stretch;
+  }
+
+  .remtys-item-btn,
+  .remtys-categoria-back-btn {
+    width: 100%;
+  }
+
+  .remtys-categoria-toolbar-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,4 +1,5 @@
 import { remtysCategorias } from "../data/remtys-categorias-data.js";
+import { remtysItems } from "../data/remtys-items-data.js";
 
 function escapeHtml(text) {
   return String(text ?? "")
@@ -9,12 +10,19 @@ function escapeHtml(text) {
     .replaceAll("'", "&#039;");
 }
 
+function getCategoriasWithTotals() {
+  return remtysCategorias.map((categoria) => ({
+    ...categoria,
+    total: remtysItems.filter((item) => item.categoria === categoria.id).length
+  }));
+}
+
 function createCard(categoria) {
   return `
     <article class="remtys-card" data-name="${escapeHtml(categoria.nombre)}">
       <div class="remtys-card-top">
         <span class="remtys-badge">Trámites y servicios</span>
-        <span class="remtys-count">${categoria.total} registros</span>
+        <span class="remtys-count">${categoria.total} registro${categoria.total === 1 ? "" : "s"}</span>
       </div>
 
       <h2>${escapeHtml(categoria.nombre)}</h2>
@@ -53,7 +61,7 @@ function updateResultsText(count, searchValue = "") {
   if (!results) return;
 
   if (!searchValue.trim()) {
-    results.textContent = `Mostrando ${count} categorías`;
+    results.textContent = `Mostrando ${count} categoría${count === 1 ? "" : "s"}`;
     return;
   }
 
@@ -66,26 +74,32 @@ function updateHelperText(text) {
   helperText.textContent = text;
 }
 
-function filterCategorias(searchValue) {
+function filterCategorias(categorias, searchValue) {
   const query = searchValue.toLowerCase().trim();
 
-  if (!query) return remtysCategorias;
+  if (!query) return categorias;
 
-  return remtysCategorias.filter((categoria) =>
+  return categorias.filter((categoria) =>
     categoria.nombre.toLowerCase().includes(query)
   );
 }
 
-function bindCategoryButtons() {
+function bindCategoryButtons(categorias) {
   const buttons = document.querySelectorAll(".remtys-btn");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      const categoryId = button.dataset.categoryId;
+      const categoria = categorias.find((item) => item.id === categoryId);
       const categoryName = button.dataset.categoryName || "la categoría seleccionada";
 
-      updateHelperText(
-        `La vista de "${categoryName}" se integrará en el siguiente paso. Después conectaremos esta categoría con su listado de trámites y servicios.`
-      );
+      if (!categoryId || !categoria) return;
+
+      sessionStorage.setItem("remtysCategoriaActiva", categoryId);
+      sessionStorage.removeItem("remtysItemActivo");
+
+      updateHelperText(`Abriendo la categoría "${categoryName}".`);
+      navigateTo("components/sections/mejora/sections-catalogo/remtys-categoria.html");
     });
   });
 }
@@ -94,16 +108,18 @@ function initRemtysPage() {
   const searchInput = document.getElementById("remtysSearch");
   if (!searchInput) return;
 
-  renderGrid(remtysCategorias);
-  updateResultsText(remtysCategorias.length);
-  bindCategoryButtons();
+  const categorias = getCategoriasWithTotals();
+
+  renderGrid(categorias);
+  updateResultsText(categorias.length);
+  bindCategoryButtons(categorias);
 
   searchInput.addEventListener("input", function () {
-    const filtered = filterCategorias(this.value);
+    const filtered = filterCategorias(categorias, this.value);
 
     renderGrid(filtered);
     updateResultsText(filtered.length, this.value);
-    bindCategoryButtons();
+    bindCategoryButtons(categorias);
 
     if (!this.value.trim()) {
       updateHelperText("Selecciona una categoría para consultar sus trámites y servicios.");

@@ -75,6 +75,22 @@ const ROUTE_CONFIG = [
     css: ["css/sections/sections-catalogo/remuvid.css"],
     js: []
   },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
+    css: ["css/sections/sections-catalogo/remtys.css"],
+    js: ["js/components/remtys.js"],
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-categoria.html"),
+    css: ["css/sections/sections-catalogo/remtys-categoria.css"],
+    js: ["js/components/remtys-categoria.js"]
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-detalle.html"),
+    css: ["css/sections/sections-catalogo/remtys-detalle.css"],
+    js: ["js/components/remtys-detalle.js"]
+  }
+  ,
 
   /* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
   {

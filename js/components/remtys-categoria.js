@@ -23,9 +23,30 @@ function getTypeLabel(tipo) {
   return String(tipo || "") === "servicio" ? "Servicio" : "Trámite";
 }
 
+function getItemSummary(item) {
+  const resumen = item.resumenCategoria || {};
+
+  return {
+    modalidad: resumen.modalidad || item.politicasLineamientos?.realizacionPorVia || "No disponible",
+    costo: resumen.costo || item.politicasLineamientos?.montoTotal || "No disponible",
+    tiempoRespuesta: resumen.tiempoRespuesta || item.politicasLineamientos?.tiempoResolucion || "No disponible",
+    dependencia: resumen.dependencia || item.sujetoObligado?.unidadAdministrativa || item.sujetoObligado?.dependenciaResponsable || "No disponible"
+  };
+}
+
+function createMetaItem(label, value) {
+  return `
+    <li>
+      <span class="remtys-item-meta-label">${escapeHtml(label)}:</span>
+      <span class="remtys-item-meta-value">${escapeHtml(value)}</span>
+    </li>
+  `;
+}
+
 function createItemCard(item) {
   const typeLabel = getTypeLabel(item.tipo);
   const typeClass = item.tipo === "servicio" ? "tipo-servicio" : "tipo-tramite";
+  const summary = getItemSummary(item);
 
   return `
     <article class="remtys-item-card">
@@ -36,6 +57,13 @@ function createItemCard(item) {
 
         <h2>${escapeHtml(item.nombre)}</h2>
         <p>${escapeHtml(item.descripcion || "Sin descripción disponible.")}</p>
+
+        <ul class="remtys-item-meta">
+          ${createMetaItem("Modalidad", summary.modalidad)}
+          ${createMetaItem("Costo", summary.costo)}
+          ${createMetaItem("Tiempo", summary.tiempoRespuesta)}
+          ${createMetaItem("Dependencia", summary.dependencia)}
+        </ul>
       </div>
 
       <div class="remtys-item-actions">
@@ -86,6 +114,12 @@ function updateResults(count, searchValue = "") {
   results.textContent = `Se encontraron ${count} resultado(s) para "${searchValue}"`;
 }
 
+function updateBreadcrumb(categoria) {
+  const breadcrumb = document.getElementById("remtysCategoriaBreadcrumb");
+  if (!breadcrumb) return;
+  breadcrumb.textContent = categoria?.nombre || "Categoría";
+}
+
 function bindItemButtons(items) {
   const buttons = document.querySelectorAll(".remtys-item-btn");
 
@@ -98,6 +132,7 @@ function bindItemButtons(items) {
 
       sessionStorage.setItem("remtysItemActivo", item.id);
       sessionStorage.setItem("remtysCategoriaActiva", item.categoria);
+
       navigateTo("components/sections/mejora/sections-catalogo/remtys-detalle.html");
     });
   });
@@ -109,7 +144,17 @@ function filterItems(items, searchValue) {
   if (!query) return items;
 
   return items.filter((item) => {
-    const searchableText = [item.nombre, item.descripcion, item.tipo]
+    const summary = getItemSummary(item);
+
+    const searchableText = [
+      item.nombre,
+      item.descripcion,
+      item.tipo,
+      summary.modalidad,
+      summary.costo,
+      summary.tiempoRespuesta,
+      summary.dependencia
+    ]
       .join(" ")
       .toLowerCase();
 
@@ -129,12 +174,14 @@ function initRemtysCategoriaPage() {
     title.textContent = "Categoría no disponible";
     description.textContent = "No se encontró una categoría activa. Regresa al listado principal para continuar.";
     updateResults(0);
+    updateBreadcrumb(null);
     renderEmptyState("No fue posible cargar la categoría seleccionada.");
     return;
   }
 
   title.textContent = categoria.nombre;
   description.textContent = categoria.descripcion;
+  updateBreadcrumb(categoria);
 
   const baseItems = getItemsByCategory(categoria.id);
 
@@ -147,7 +194,7 @@ function initRemtysCategoriaPage() {
 
     renderList(filtered);
     updateResults(filtered.length, this.value);
-    bindItemButtons(baseItems);
+    bindItemButtons(filtered);
   });
 }
 

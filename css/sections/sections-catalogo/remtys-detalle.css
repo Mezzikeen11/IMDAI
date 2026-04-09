@@ -1,5 +1,9 @@
+/* ============================= */
+/* REMTYS DETALLE                */
+/* ============================= */
+
 .remtys-detalle-page {
-  padding: 56px 0 64px;
+  padding: 56px 0 72px;
 }
 
 .remtys-detalle-hero {
@@ -12,8 +16,43 @@
   margin: 0 auto;
   color: #5c6b70;
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
+
+/* ============================= */
+/* BREADCRUMB (OPCIONAL)         */
+/* ============================= */
+
+.remtys-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  color: #5c6b70;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remtys-breadcrumb button,
+.remtys-breadcrumb a {
+  border: none;
+  background: transparent;
+  color: #025361;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.remtys-breadcrumb span {
+  color: #6c7b80;
+}
+
+/* ============================= */
+/* TOOLBAR                       */
+/* ============================= */
 
 .remtys-detalle-toolbar {
   display: flex;
@@ -22,29 +61,38 @@
 }
 
 .remtys-detalle-back-btn {
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 44px;
+  padding: 11px 18px;
   border: 1px solid #d6e1e4;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #ffffff;
   color: #025361;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .remtys-detalle-back-btn:hover {
   background: #f3f8f9;
   border-color: #025361;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
 }
 
+/* ============================= */
+/* TABS CARD                     */
+/* ============================= */
+
 .remtys-tabs-card {
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdfd 100%);
   border: 1px solid #e1e7e9;
-  border-radius: 20px;
-  padding: 22px;
+  border-radius: 22px;
+  padding: 26px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
 }
 
@@ -52,49 +100,69 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 22px;
-  padding: 6px;
+  margin-bottom: 24px;
+  padding: 8px;
   background: #edf2f3;
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 .remtys-tab {
   border: none;
   background: transparent;
   color: #1f2c30;
-  min-height: 44px;
+  min-height: 46px;
   padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .remtys-tab.is-active {
   background: #ffffff;
   color: #025361;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.remtys-tab:hover {
+  transform: translateY(-1px);
 }
 
 .remtys-tab-panel {
   display: none;
+  padding-top: 6px;
 }
 
 .remtys-tab-panel.is-active {
   display: block;
 }
 
+/* ============================= */
+/* DETAIL LIST                   */
+/* ============================= */
+
 .remtys-detail-list {
   margin: 0;
-  padding-left: 22px;
+  padding-left: 0;
+  list-style: none;
   color: #2f3d42;
 }
 
 .remtys-detail-list li {
-  margin-bottom: 10px;
-  line-height: 1.7;
+  margin-bottom: 0;
+  padding: 12px 0;
+  line-height: 1.75;
   font-size: 16px;
+  border-bottom: 1px solid #edf2f3;
+}
+
+.remtys-detail-list li:last-child {
+  border-bottom: none;
 }
 
 .remtys-detail-label {
@@ -102,12 +170,28 @@
   color: #025361;
 }
 
+.remtys-detail-list a {
+  color: #025361;
+  font-weight: 700;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.remtys-detail-list a:hover {
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* REQUISITOS                    */
+/* ============================= */
+
 .remtys-requisito-card {
-  background: #f9fbfc;
+  background: #ffffff;
   border: 1px solid #e1e7e9;
-  border-radius: 16px;
-  padding: 18px;
+  border-radius: 18px;
+  padding: 18px 20px;
   margin-bottom: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
 }
 
 .remtys-requisito-card:last-child {
@@ -115,20 +199,26 @@
 }
 
 .remtys-requisito-card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: #025361;
   font-size: 18px;
+  line-height: 1.35;
 }
 
 .remtys-empty-detail {
   color: #5c6b70;
-  line-height: 1.7;
+  line-height: 1.75;
   font-size: 15px;
+  margin: 0;
 }
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
 
 @media (max-width: 768px) {
   .remtys-detalle-page {
-    padding: 42px 0 48px;
+    padding: 42px 0 52px;
   }
 
   .remtys-detalle-intro {

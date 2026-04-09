@@ -1,5 +1,9 @@
+/* ============================= */
+/* REMTYS CATEGORÍA              */
+/* ============================= */
+
 .remtys-categoria-page {
-  padding: 56px 0 64px;
+  padding: 56px 0 72px;
 }
 
 .remtys-categoria-hero {
@@ -12,14 +16,49 @@
   margin: 0 auto;
   color: #5c6b70;
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
+
+/* ============================= */
+/* BREADCRUMB (OPCIONAL)         */
+/* ============================= */
+
+.remtys-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  color: #5c6b70;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remtys-breadcrumb button,
+.remtys-breadcrumb a {
+  border: none;
+  background: transparent;
+  color: #025361;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.remtys-breadcrumb span {
+  color: #6c7b80;
+}
+
+/* ============================= */
+/* TOOLBAR                       */
+/* ============================= */
 
 .remtys-categoria-toolbar {
   background: #ffffff;
   border: 1px solid #e1e7e9;
-  border-radius: 20px;
-  padding: 22px;
+  border-radius: 22px;
+  padding: 24px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
   margin-bottom: 24px;
 }
@@ -31,16 +70,19 @@
 
 .remtys-categoria-search-input {
   width: 100%;
-  max-width: 520px;
-  min-height: 52px;
-  padding: 12px 16px;
+  max-width: 560px;
+  min-height: 54px;
+  padding: 12px 18px;
   border: 1px solid #d6e1e4;
   border-radius: 14px;
   background: #fbfcfc;
   color: #334246;
   font-size: 15px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .remtys-categoria-search-input:focus {
@@ -54,57 +96,101 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 18px;
   flex-wrap: wrap;
 }
 
 .remtys-categoria-results {
   margin: 0;
-  color: #5c6b70;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: #f3f7f8;
+  color: #4f5f64;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
+/* ============================= */
+/* BACK BUTTON                   */
+/* ============================= */
+
 .remtys-categoria-back-btn {
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 44px;
+  padding: 11px 18px;
   border: 1px solid #d6e1e4;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #ffffff;
   color: #025361;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .remtys-categoria-back-btn:hover {
   background: #f3f8f9;
   border-color: #025361;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
 }
+
+/* ============================= */
+/* LISTADO                       */
+/* ============================= */
 
 .remtys-categoria-list {
   display: grid;
   gap: 18px;
 }
 
+/* ============================= */
+/* ITEM CARD                     */
+/* ============================= */
+
 .remtys-item-card {
-  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdfd 100%);
   border: 1px solid #e1e7e9;
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 20px;
+  padding: 22px 24px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 18px;
   align-items: center;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.remtys-item-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, #025361 0%, #0b7a86 100%);
+}
+
+.remtys-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.07);
+  border-color: #cfdcdf;
 }
 
 .remtys-item-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-left: 6px;
 }
 
 .remtys-item-top {
@@ -117,8 +203,8 @@
 .remtys-item-type {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 6px 10px;
+  min-height: 31px;
+  padding: 6px 11px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 800;
@@ -138,7 +224,7 @@
 .remtys-item-card h2 {
   margin: 0;
   color: #025361;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.3;
   font-weight: 800;
 }
@@ -147,7 +233,7 @@
   margin: 0;
   color: #5c6b70;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .remtys-item-actions {
@@ -156,38 +242,57 @@
 }
 
 .remtys-item-btn {
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 44px;
+  min-width: 150px;
+  padding: 11px 18px;
   border: 1px solid #025361;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #025361;
   color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 8px 18px rgba(2, 83, 97, 0.16);
 }
 
 .remtys-item-btn:hover {
   background: #006b79;
   border-color: #006b79;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(2, 83, 97, 0.18);
 }
+
+.remtys-item-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* EMPTY STATE                   */
+/* ============================= */
 
 .remtys-categoria-empty {
   background: #ffffff;
   border: 1px solid #e1e7e9;
-  border-radius: 18px;
-  padding: 26px;
+  border-radius: 20px;
+  padding: 28px;
   text-align: center;
   color: #5c6b70;
-  line-height: 1.7;
+  line-height: 1.75;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
 }
 
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
 @media (max-width: 768px) {
   .remtys-categoria-page {
-    padding: 42px 0 48px;
+    padding: 42px 0 52px;
   }
 
   .remtys-categoria-intro {
@@ -210,10 +315,59 @@
   .remtys-item-btn,
   .remtys-categoria-back-btn {
     width: 100%;
+    min-width: 0;
   }
 
   .remtys-categoria-toolbar-bottom {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .remtys-categoria-results {
+    justify-content: center;
+  }
+}
+
+/* ============================= */
+/* META DE CADA TRÁMITE          */
+/* ============================= */
+
+.remtys-item-meta {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+
+.remtys-item-meta li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: #f8fbfb;
+  border: 1px solid #e7eff1;
+  border-radius: 12px;
+}
+
+.remtys-item-meta-label {
+  color: #6b7b80;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.remtys-item-meta-value {
+  color: #244047;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+  .remtys-item-meta {
+    grid-template-columns: 1fr;
   }
 }

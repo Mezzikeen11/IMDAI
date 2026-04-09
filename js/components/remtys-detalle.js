@@ -1,4 +1,5 @@
 import { remtysItems } from "../data/remtys-items-data.js";
+import { remtysCategorias } from "../data/remtys-categorias-data.js";
 
 const SUBJECT_LABELS = {
   dependenciaResponsable: "Dependencia responsable",
@@ -34,6 +35,10 @@ function escapeHtml(text) {
 function getActiveItem() {
   const itemId = sessionStorage.getItem("remtysItemActivo");
   return remtysItems.find((item) => item.id === itemId) || null;
+}
+
+function getCategoryById(categoriaId) {
+  return remtysCategorias.find((categoria) => categoria.id === categoriaId) || null;
 }
 
 function formatValue(value) {
@@ -98,9 +103,11 @@ function renderEmptyDetail() {
   const subjectList = document.getElementById("remtysSujetoObligadoList");
   const politicasList = document.getElementById("remtysPoliticasList");
   const requisitos = document.getElementById("remtysRequisitosContent");
+  const breadcrumbActual = document.getElementById("remtysDetalleBreadcrumbActual");
 
   if (titulo) titulo.textContent = "Detalle no disponible";
   if (descripcion) descripcion.textContent = "No se encontró un trámite activo. Regresa a la categoría para seleccionar uno.";
+  if (breadcrumbActual) breadcrumbActual.textContent = "Detalle";
   if (subjectList) subjectList.innerHTML = `<li>Sin información disponible.</li>`;
   if (politicasList) politicasList.innerHTML = `<li>Sin información disponible.</li>`;
   if (requisitos) requisitos.innerHTML = `<p class="remtys-empty-detail">Sin requisitos disponibles.</p>`;
@@ -123,24 +130,46 @@ function bindTabs() {
   });
 }
 
+function goToCategory(item) {
+  if (item?.categoria) {
+    sessionStorage.setItem("remtysCategoriaActiva", item.categoria);
+  }
+
+  navigateTo("components/sections/mejora/sections-catalogo/remtys-categoria.html");
+}
+
 function bindBackButton(item) {
   const backBtn = document.getElementById("remtysBackToCategoria");
   if (!backBtn) return;
 
   backBtn.addEventListener("click", () => {
-    if (item?.categoria) {
-      sessionStorage.setItem("remtysCategoriaActiva", item.categoria);
-    }
-
-    navigateTo("components/sections/mejora/sections-catalogo/remtys-categoria.html");
+    goToCategory(item);
   });
+}
+
+function bindBreadcrumbCategory(item, categoria) {
+  const breadcrumbBtn = document.getElementById("remtysDetalleBreadcrumbCategoria");
+  const breadcrumbActual = document.getElementById("remtysDetalleBreadcrumbActual");
+
+  if (breadcrumbBtn) {
+    breadcrumbBtn.textContent = categoria?.nombre || "Categoría";
+    breadcrumbBtn.addEventListener("click", () => {
+      goToCategory(item);
+    });
+  }
+
+  if (breadcrumbActual) {
+    breadcrumbActual.textContent = item?.nombre || "Detalle";
+  }
 }
 
 function initRemtysDetallePage() {
   const item = getActiveItem();
+  const categoria = getCategoryById(item?.categoria);
 
   bindTabs();
   bindBackButton(item);
+  bindBreadcrumbCategory(item, categoria);
 
   if (!item) {
     renderEmptyDetail();

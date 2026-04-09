@@ -3,12 +3,12 @@
 /* ============================= */
 
 .remtys-page {
-  padding: 56px 0 64px;
+  padding: 56px 0 72px;
 }
 
 .remtys-hero {
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 34px;
 }
 
 .remtys-intro {
@@ -16,35 +16,78 @@
   margin: 0 auto;
   color: #5c6b70;
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
+
+/* ============================= */
+/* BREADCRUMB (OPCIONAL)         */
+/* ============================= */
+
+.remtys-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  color: #5c6b70;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remtys-breadcrumb button,
+.remtys-breadcrumb a {
+  border: none;
+  background: transparent;
+  color: #025361;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.remtys-breadcrumb span {
+  color: #6c7b80;
+}
+
+/* ============================= */
+/* TOOLBAR                       */
+/* ============================= */
 
 .remtys-toolbar {
   background: #ffffff;
   border: 1px solid #e1e7e9;
-  border-radius: 20px;
-  padding: 22px;
+  border-radius: 22px;
+  padding: 24px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
 }
 
 .remtys-search {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .remtys-search-input {
   width: 100%;
-  max-width: 520px;
-  min-height: 52px;
-  padding: 12px 16px;
+  max-width: 560px;
+  min-height: 54px;
+  padding: 12px 18px;
   border: 1px solid #d6e1e4;
   border-radius: 14px;
   background: #fbfcfc;
   color: #334246;
   font-size: 15px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .remtys-search-input:focus {
@@ -54,20 +97,40 @@
 }
 
 .remtys-results {
-  margin: 14px 0 0;
-  text-align: center;
-  color: #5c6b70;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: #f3f7f8;
+  color: #4f5f64;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }
 
+/* ============================= */
+/* HELPER CARD                   */
+/* ============================= */
+
 .remtys-helper-card {
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfc 100%);
   border: 1px solid #e1e7e9;
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 20px;
+  padding: 22px 24px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
   margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.remtys-helper-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #025361 0%, #0b7a86 100%);
 }
 
 .remtys-helper-card h2 {
@@ -81,8 +144,12 @@
   margin: 0;
   color: #5c6b70;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
+
+/* ============================= */
+/* GRID                          */
+/* ============================= */
 
 .remtys-grid {
   display: grid;
@@ -90,22 +157,39 @@
   gap: 22px;
 }
 
+/* ============================= */
+/* CARD                          */
+/* ============================= */
+
 .remtys-card {
-  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdfd 100%);
   border: 1px solid #e1e7e9;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 24px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 232px;
+  min-height: 244px;
+}
+
+.remtys-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #025361 0%, #0b7a86 100%);
 }
 
 .remtys-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
   border-color: #cfdcdf;
 }
 
@@ -122,7 +206,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 30px;
-  padding: 6px 10px;
+  padding: 6px 11px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 800;
@@ -142,7 +226,7 @@
 .remtys-card h2 {
   margin: 0;
   color: #025361;
-  font-size: 24px;
+  font-size: 25px;
   line-height: 1.25;
   font-weight: 800;
 }
@@ -151,41 +235,64 @@
   margin: 0;
   color: #5c6b70;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.75;
   flex-grow: 1;
 }
 
+/* ============================= */
+/* BOTONES                       */
+/* ============================= */
+
 .remtys-btn {
   align-self: flex-start;
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 44px;
+  min-width: 186px;
+  padding: 11px 18px;
   border: 1px solid #025361;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #025361;
   color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 8px 18px rgba(2, 83, 97, 0.16);
 }
 
 .remtys-btn:hover {
   background: #006b79;
   border-color: #006b79;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(2, 83, 97, 0.18);
 }
+
+.remtys-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* EMPTY STATE                   */
+/* ============================= */
 
 .remtys-empty {
   grid-column: 1 / -1;
   background: #ffffff;
   border: 1px solid #e1e7e9;
-  border-radius: 18px;
-  padding: 26px;
+  border-radius: 20px;
+  padding: 28px;
   text-align: center;
   color: #5c6b70;
-  line-height: 1.7;
+  line-height: 1.75;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
 }
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
 
 @media (max-width: 992px) {
   .remtys-grid {
@@ -195,7 +302,7 @@
 
 @media (max-width: 768px) {
   .remtys-page {
-    padding: 42px 0 48px;
+    padding: 42px 0 52px;
   }
 
   .remtys-intro {
@@ -209,7 +316,7 @@
   }
 
   .remtys-card h2 {
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .remtys-card p,
@@ -225,10 +332,16 @@
 
   .remtys-btn {
     width: 100%;
+    min-width: 0;
   }
 
   .remtys-card-top {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .remtys-results {
+    text-align: center;
+    justify-content: center;
   }
 }

@@ -6,6 +6,13 @@ export const remtysItems = [
     categoria: "registro-civil-identidad",
     descripcion: "Expedición de copia certificada del acta de defunción.",
 
+    resumenCategoria: {
+      modalidad: "Presencial",
+      costo: "$207.00 MXN",
+      tiempoRespuesta: "El mismo día",
+      dependencia: "Registro Civil"
+    },
+
     sujetoObligado: {
       dependenciaResponsable: "Dirección de la Coordinación del Registro Civil",
       unidadAdministrativa: "Registro Civil",

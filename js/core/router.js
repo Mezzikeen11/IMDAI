@@ -50,47 +50,100 @@ const ROUTE_CONFIG = [
   },
 
   /* ---------- MEJORA: SECTIONS-CATALOGO ---------- */
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/estructuras.html"),
-    css: ["css/sections/sections-catalogo/estructuras.css"],
-    js: ["js/components/estructura.js"]
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/protesta-ciudadana.html"),
-    css: ["css/sections/sections-catalogo/protesta-ciudadana.css"],
-    js: []
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
-    css: ["css/sections/sections-catalogo/remtys.css"],
-    js: ["js/components/remtys.js"],
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure.html"),
-    css: ["css/sections/sections-catalogo/remure.css"],
-    js: ["js/components/remure.js"]
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remuvid.html"),
-    css: ["css/sections/sections-catalogo/remuvid.css"],
-    js: []
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
-    css: ["css/sections/sections-catalogo/remtys.css"],
-    js: ["js/components/remtys.js"],
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-categoria.html"),
-    css: ["css/sections/sections-catalogo/remtys-categoria.css"],
-    js: ["js/components/remtys-categoria.js"]
-  },
-  {
-    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-detalle.html"),
-    css: ["css/sections/sections-catalogo/remtys-detalle.css"],
-    js: ["js/components/remtys-detalle.js"]
-  }
-  ,
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/estructuras.html"),
+  css: ["css/sections/sections-catalogo/estructuras.css"],
+  js: ["js/components/estructura.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/protesta-ciudadana.html"),
+  css: ["css/sections/sections-catalogo/protesta-ciudadana.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
+  css: ["css/sections/sections-catalogo/remtys.css"],
+  js: ["js/components/remtys.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure.html"),
+  css: ["css/sections/sections-catalogo/remure.css"],
+  js: ["js/components/remure.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remuvid.html"),
+  css: ["css/sections/sections-catalogo/remuvid.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-categoria.html"),
+  css: ["css/sections/sections-catalogo/remtys-categoria.css"],
+  js: ["js/components/remtys-categoria.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-detalle.html"),
+  css: ["css/sections/sections-catalogo/remtys-detalle.css"],
+  js: ["js/components/remtys-detalle.js"]
+},
+
+/* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
+{
+  match: (route) => route.includes("components/sections/mejora/sections-documentacion/lineamientos.html"),
+  css: ["css/sections/sections-documentacion/lineamientos.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-organizacion.html"),
+  css: ["css/sections/sections-documentacion/manuales-organizacion.css"],
+  js: ["js/components/manuales-organizacion.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-procedimientos.html"),
+  css: ["css/sections/sections-documentacion/manuales-procedimientos.css"],
+  js: ["js/components/manuales-procedimientos.js"]
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-documentacion/protocolos.html"),
+  css: ["css/sections/sections-documentacion/protocolos.css"],
+  js: ["js/components/protocolos.js"]
+},
+
+/* ---------- MEJORA: SECTIONS-SISTEMA ---------- */
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/agenda.html"),
+  css: ["css/sections/sections-sistema/agenda.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/air.html"),
+  css: ["css/sections/sections-sistema/air.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/catalogo.html"),
+  css: ["css/sections/sections-sistema/catalogo.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/consulta-publica.html"),
+  css: ["css/sections/sections-sistema/consulta-publica.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/programa-anual.html"),
+  css: ["css/sections/sections-sistema/programa-anual.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/lineamientos-operativos.html"),
+  css: ["css/sections/mejora.css"],
+  js: []
+},
+{
+  match: (route) => route.includes("components/sections/mejora/sections-sistema/programas-especificos.html"),
+  css: ["css/sections/mejora.css"],
+  js: []
+},
 
   /* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
   {
@@ -138,6 +191,16 @@ const ROUTE_CONFIG = [
   {
     match: (route) => route.includes("components/sections/mejora/sections-sistema/programa-anual.html"),
     css: ["css/sections/sections-sistema/programa-anual.css"],
+    js: []
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-sistema/lineamientos-operativos.html"),
+    css: ["css/sections/sections-sistema/lineamientos-operativos.css"],
+    js: []
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-sistema/programas-especificos.html"),
+    css: ["css/sections/sections-sistema/programas-especificos.css"],
     js: []
   },
 

@@ -39,72 +39,67 @@ const ROUTE_CONFIG = [
     js: []
   },
   {
-    match: (route) => route.includes("components/sections/mejora/documentacion.html"),
-    css: ["css/sections/mejora.css"],
-    js: []
-  },
-  {
     match: (route) => route.includes("components/sections/mejora/sistema.html"),
     css: ["css/sections/sistema.css"],
     js: []
   },
 
   /* ---------- MEJORA: SECTIONS-CATALOGO ---------- */
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/estructuras.html"),
-  css: ["css/sections/sections-catalogo/estructuras.css"],
-  js: ["js/components/estructura.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/protesta-ciudadana.html"),
-  css: ["css/sections/sections-catalogo/protesta-ciudadana.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
-  css: ["css/sections/sections-catalogo/remtys.css"],
-  js: ["js/components/remtys.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure.html"),
-  css: ["css/sections/sections-catalogo/remure.css"],
-  js: ["js/components/remure.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remuvid.html"),
-  css: ["css/sections/sections-catalogo/remuvid.css"],
-  js: []
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-categoria.html"),
-  css: ["css/sections/sections-catalogo/remtys-categoria.css"],
-  js: ["js/components/remtys-categoria.js"]
-},
-{
-  match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-detalle.html"),
-  css: ["css/sections/sections-catalogo/remtys-detalle.css"],
-  js: ["js/components/remtys-detalle.js"]
-},
-
-  /* ---------- MEJORA: SECTIONS-DOCUMENTACION ---------- */
   {
-    match: (route) => route.includes("components/sections/mejora/sections-documentacion/lineamientos.html"),
-    css: ["css/sections/sections-documentacion/lineamientos.css"],
+    match: (route) => route.includes("components/sections/desarrollo/estructuras.html"),
+    css: ["css/sections/desarrollo/estructuras.css"],
+    js: ["js/components/estructura.js"]
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/protesta-ciudadana.html"),
+    css: ["css/sections/sections-catalogo/protesta-ciudadana.css"],
     js: []
   },
   {
-    match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-organizacion.html"),
-    css: ["css/sections/sections-documentacion/manuales-organizacion.css"],
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys.html"),
+    css: ["css/sections/sections-catalogo/remtys.css"],
+    js: ["js/components/remtys.js"]
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure.html"),
+    css: ["css/sections/sections-catalogo/remure.css"],
+    js: ["js/components/remure.js"]
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remuvid.html"),
+    css: ["css/sections/sections-catalogo/remuvid.css"],
+    js: []
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-categoria.html"),
+    css: ["css/sections/sections-catalogo/remtys-categoria.css"],
+    js: ["js/components/remtys-categoria.js"]
+  },
+  {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remtys-detalle.html"),
+    css: ["css/sections/sections-catalogo/remtys-detalle.css"],
+    js: ["js/components/remtys-detalle.js"]
+  },
+
+    /* ---------- DESARROLLO ADMINISTRATIVO E INNOVACIÓN ---------- */
+  {
+    match: (route) => route.includes("components/sections/desarrollo/lineamientos.html"),
+    css: ["css/sections/desarrollo/lineamientos.css"],
+    js: []
+  },
+  {
+    match: (route) => route.includes("components/sections/desarrollo/manuales-organizacion.html"),
+    css: ["css/sections/desarrollo/manuales-organizacion.css"],
     js: ["js/components/manuales-organizacion.js"]
   },
   {
-    match: (route) => route.includes("components/sections/mejora/sections-documentacion/manuales-procedimientos.html"),
-    css: ["css/sections/sections-documentacion/manuales-procedimientos.css"],
+    match: (route) => route.includes("components/sections/desarrollo/manuales-procedimientos.html"),
+    css: ["css/sections/desarrollo/manuales-procedimientos.css"],
     js: ["js/components/manuales-procedimientos.js"]
   },
   {
-    match: (route) => route.includes("components/sections/mejora/sections-documentacion/protocolos.html"),
-    css: ["css/sections/sections-documentacion/protocolos.css"],
+    match: (route) => route.includes("components/sections/desarrollo/protocolos.html"),
+    css: ["css/sections/desarrollo/protocolos.css"],
     js: ["js/components/protocolos.js"]
   },
 

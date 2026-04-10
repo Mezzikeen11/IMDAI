@@ -1,5 +1,4 @@
 import { fetchHTML } from "./loader.js";
-import { initVentanillaPresencialAccordion } from "../components/ventanilla.js";
 
 /* ===================== */
 /* HOME                  */
@@ -81,7 +80,12 @@ const ROUTE_CONFIG = [
     js: ["js/components/remtys-detalle.js"]
   },
 
-    /* ---------- DESARROLLO ADMINISTRATIVO E INNOVACIÓN ---------- */
+  /* ---------- DESARROLLO ADMINISTRATIVO E INNOVACIÓN ---------- */
+  {
+    match: (route) => route.includes("components/sections/desarrollo/estructuras.html"),
+    css: ["css/sections/desarrollo/estructuras.css"],
+    js: ["js/components/estructura.js"]
+  },
   {
     match: (route) => route.includes("components/sections/desarrollo/lineamientos.html"),
     css: ["css/sections/desarrollo/lineamientos.css"],
@@ -277,17 +281,6 @@ async function loadHome() {
   );
 
   app.innerHTML = fragments.join("\n");
-}
-
-async function loadSection(path) {
-  const app = getAppContainer();
-
-  if (!app) {
-    throw new Error("No existe el contenedor #app");
-  }
-
-  const html = await fetchHTML(path);
-  app.innerHTML = html;
 }
 
 async function loadSectionWithAssets(path) {

@@ -257,15 +257,15 @@
   }
 
   .dropdown {
-    position: static;
-    box-shadow: none;
-    width: 100%;
-    margin-top: 10px;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    min-width: auto;
-    max-width: 280px;
-  }
+  position: static;
+  box-shadow: none;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  min-width: auto;
+  max-width: none;
+}
 
   .dropdown li {
     padding: 12px 14px;

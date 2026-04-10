@@ -1,4 +1,5 @@
 import { fetchHTML } from "./loader.js";
+import { initVentanillaPresencialAccordion } from "../components/ventanilla.js";
 
 /* ===================== */
 /* HOME                  */
@@ -44,11 +45,6 @@ const ROUTE_CONFIG = [
   },
 
   /* ---------- MEJORA: SECTIONS-CATALOGO ---------- */
-  {
-    match: (route) => route.includes("components/sections/desarrollo/estructuras.html"),
-    css: ["css/sections/desarrollo/estructuras.css"],
-    js: ["js/components/estructura.js"]
-  },
   {
     match: (route) => route.includes("components/sections/mejora/sections-catalogo/protesta-ciudadana.html"),
     css: ["css/sections/sections-catalogo/protesta-ciudadana.css"],
@@ -148,7 +144,7 @@ const ROUTE_CONFIG = [
   {
     match: (route) => route.includes("components/sections/ventanilla/ventanilla.html"),
     css: ["css/sections/ventanilla.css"],
-    js: ["js/components/ventanilla.js"]
+    js: []
   },
 
   /* ---------- ARMONIZACIÓN ---------- */
@@ -310,12 +306,12 @@ function initDynamicSections() {
   }
 
   if (
-    document.getElementById("presencialAccordion") &&
-    typeof initVentanillaPresencialAccordion === "function"
-  ) {
-    initVentanillaPresencialAccordion();
+      document.querySelector("#presencial .ventanilla-accordion") &&
+      typeof initVentanillaPresencialAccordion === "function"
+    ) {
+      initVentanillaPresencialAccordion();
+    }
   }
-}
 
 /* ===================== */
 /* NAVEGACIÓN            */

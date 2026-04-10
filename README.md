@@ -11,7 +11,7 @@ Este proyecto se encuentra en una fase enfocada en:
 - definición de bases técnicas y documentales para futuras integraciones
 - preparación estructural para una posterior implementación de backend por parte del equipo institucional autorizado
 
-### Alcance de esta fase
+## Alcance de esta fase
 
 En esta etapa **no se integra backend real ni conexiones a base de datos**, ya que el acceso a infraestructura institucional no forma parte del alcance del equipo actual.
 
@@ -25,7 +25,7 @@ El objetivo es dejar:
 
 ## Arquitectura general
 
-El proyecto funciona como una **SPA ligera (Single Page Application ligera)** sin framework.
+El proyecto funciona como una **SPA ligera** sin framework.
 
 El flujo general es:
 
@@ -62,24 +62,79 @@ IMDAI/
 │   │   └── footer.html
 │   └── sections/
 │       ├── armonizacion/
+│       │   ├── armonizacion.html
+│       │   ├── bienes.html
+│       │   ├── cuenta.html
+│       │   ├── indicadores.html
+│       │   └── manual.html
 │       ├── contacto/
+│       │   └── contacto.html
+│       ├── desarrollo/
+│       │   ├── estructuras.html
+│       │   ├── lineamientos.html
+│       │   ├── manuales-organizacion.html
+│       │   ├── manuales-procedimientos.html
+│       │   └── protocolos.html
 │       ├── home/
+│       │   ├── hero.html
+│       │   ├── noticias.html
+│       │   └── servicios.html
 │       ├── mejora/
+│       │   ├── catalogo.html
+│       │   ├── que-es.html
+│       │   ├── sistema.html
 │       │   ├── sections-catalogo/
-│       │   ├── sections-documentacion/
-│       │   └── sections-sistema/
+│       │   ├── sections-sistema/
+│       │   └── ...
 │       ├── nosotros/
+│       │   ├── antecedentes.html
+│       │   ├── directorio.html
+│       │   ├── galeria.html
+│       │   ├── mision.html
+│       │   └── organigrama.html
 │       └── ventanilla/
+│           └── ventanilla.html
 ├── css/
 │   ├── base.css
 │   ├── layout.css
 │   ├── utilities.css
 │   ├── components/
+│   │   ├── buttons.css
+│   │   ├── cards.css
+│   │   ├── forms.css
+│   │   └── tables.css
 │   └── sections/
+│       ├── armonizacion.css
+│       ├── contacto.css
+│       ├── desarrollo/
+│       ├── home.css
+│       ├── mejora.css
+│       ├── nosotros.css
+│       ├── sections-catalogo/
+│       ├── sections-sistema/
+│       ├── sistema.css
+│       └── ventanilla.css
 └── js/
     ├── main.js
     ├── core/
     │   ├── loader.js
     │   └── router.js
     ├── components/
+    │   ├── dropdown.js
+    │   ├── estructura.js
+    │   ├── manuales-organizacion.js
+    │   ├── manuales-procedimientos.js
+    │   ├── protocolos.js
+    │   ├── remtys-categoria.js
+    │   ├── remtys-detalle.js
+    │   ├── remtys.js
+    │   ├── remure.js
+    │   └── ventanilla.js
     └── data/
+        ├── estructura-data.js
+        ├── manuales-organizacion-data.js
+        ├── manuales-procedimientos-data.js
+        ├── protocolos-data.js
+        ├── remtys-categorias-data.js
+        ├── remtys-items-data.js
+        └── remure-data.js

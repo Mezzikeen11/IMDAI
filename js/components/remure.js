@@ -1,4 +1,10 @@
-import { remureData } from "../data/remure-data.js";
+import { remureConfig } from "../data/remure-config.js";
+import { dataManager } from "../data/remure-storage.js";
+import {
+  normalizeText,
+  formatDependenciaLabel,
+  formatRegulacionLabel
+} from "../utils/remure-format.js"; 
 
 (function () {
   function escapeHtml(text) {
@@ -10,72 +16,76 @@ import { remureData } from "../data/remure-data.js";
       .replaceAll("'", "&#039;");
   }
 
-  function normalizeText(text) {
-    return String(text ?? "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .trim();
-  }
-
   function formatValue(value, fallbackText) {
-    if (!value || value === "0000-00-00" || value === "0000-00-00 00:00:00") {
-      return fallbackText;
-    }
-    return value;
+    return value
+      ? escapeHtml(value)
+      : `<span class="remure-muted">${escapeHtml(fallbackText)}</span>`;
   }
 
-  function getTotalItems(data) {
-    return data.reduce((total, section) => total + (section.items?.length || 0), 0);
-  }
+  function buildOrder(configItems, storedItems, storedOrder) {
+    const base = Array.isArray(configItems) ? [...configItems] : [];
+    const order = Array.isArray(storedOrder) ? storedOrder.filter(Boolean) : [];
+    const ordered = [];
+    const seen = new Set();
 
-  function sortItemsAlphabetically(items) {
-    return [...(items || [])].sort((a, b) =>
-      normalizeText(a.nombre).localeCompare(normalizeText(b.nombre), "es")
-    );
-  }
+    order.forEach((name) => {
+      if (!seen.has(name)) {
+        ordered.push(name);
+        seen.add(name);
+      }
+    });
 
-  function sortFilteredData(data) {
-    return data.map(section => ({
-      ...section,
-      items: sortItemsAlphabetically(section.items || [])
-    }));
+    base.forEach((name) => {
+      if (!seen.has(name)) {
+        ordered.push(name);
+        seen.add(name);
+      }
+    });
+
+    Object.keys(storedItems || {}).forEach((name) => {
+      if (!seen.has(name)) {
+        ordered.push(name);
+        seen.add(name);
+      }
+    });
+
+    return ordered;
   }
 
   function buildRows(items) {
     if (!items.length) {
       return `
         <div class="remure-empty">
-          No hay documentos cargados en esta categoría por el momento.
+          No se encontraron regulaciones para la búsqueda actual.
         </div>
       `;
     }
 
     return `
       <div class="remure-table-wrap">
-        <div class="remure-table-note">Desliza horizontalmente si necesitas ver todas las columnas.</div>
+        <div class="remure-table-note">
+          Desliza horizontalmente si necesitas ver todas las columnas.
+        </div>
 
         <table class="remure-table">
           <thead>
             <tr>
-              <th>Legislación</th>
-              <th>Última Reforma</th>
-              <th>Fecha Actualización</th>
-              <th>Fecha Validación</th>
-              <th>Descargar</th>
+              <th>Nombre de la regulación</th>
+              <th>Homoclave</th>
+              <th>Fecha de aprobación</th>
+              <th>Documento</th>
             </tr>
           </thead>
           <tbody>
-            ${items.map(item => `
+            ${items.map((item) => `
               <tr>
-                <td data-label="Legislación">${escapeHtml(item.nombre)}</td>
-                <td data-label="Última Reforma">${escapeHtml(formatValue(item.ultimaReforma, "Sin reforma registrada"))}</td>
-                <td data-label="Fecha Actualización">${escapeHtml(formatValue(item.actualizacion, "Sin fecha registrada"))}</td>
-                <td data-label="Fecha Validación">${escapeHtml(formatValue(item.validacion, "Sin validación registrada"))}</td>
-                <td data-label="Descargar">
-                  ${item.archivo
-                    ? `<a class="remure-doc-link" href="${escapeHtml(item.archivo)}" target="_blank" rel="noopener noreferrer">Abrir</a>`
-                    : `<span class="remure-doc-pending">Pendiente</span>`
+                <td data-label="Nombre de la regulación">${escapeHtml(formatRegulacionLabel(item.nombre))}</td>
+                <td data-label="Homoclave">${formatValue(item.homoclave, "Sin capturar")}</td>
+                <td data-label="Fecha de aprobación">${formatValue(item.fecha, "Sin capturar")}</td>
+                <td data-label="Documento">
+                  ${item.documentoUrl
+                    ? `<a class="remure-doc-link" href="${escapeHtml(item.documentoUrl)}" target="_blank" rel="noopener noreferrer">Abrir</a>`
+                    : `<span class="remure-doc-pending">Sin enlace</span>`
                   }
                 </td>
               </tr>
@@ -103,9 +113,7 @@ import { remureData } from "../data/remure-data.js";
   }
 
   function bindSectionToggles() {
-    const toggles = document.querySelectorAll("[data-section-toggle]");
-
-    toggles.forEach((toggle) => {
+    document.querySelectorAll("[data-remure-toggle]").forEach((toggle) => {
       toggle.addEventListener("click", () => {
         const isOpen = toggle.classList.contains("is-open");
         setSectionOpenState(toggle, !isOpen);
@@ -119,7 +127,7 @@ import { remureData } from "../data/remure-data.js";
 
     if (expandBtn) {
       expandBtn.onclick = () => {
-        document.querySelectorAll("[data-section-toggle]").forEach(toggle => {
+        document.querySelectorAll("[data-remure-toggle]").forEach((toggle) => {
           setSectionOpenState(toggle, true);
         });
       };
@@ -127,55 +135,52 @@ import { remureData } from "../data/remure-data.js";
 
     if (collapseBtn) {
       collapseBtn.onclick = () => {
-        document.querySelectorAll("[data-section-toggle]").forEach(toggle => {
+        document.querySelectorAll("[data-remure-toggle]").forEach((toggle) => {
           setSectionOpenState(toggle, false);
         });
       };
     }
   }
 
-  function renderSections(data, options = {}) {
+  function renderSections(data, expandAll) {
     const content = document.getElementById("remureContent");
     if (!content) return;
 
     if (!data.length) {
       content.innerHTML = `
         <div class="remure-empty">
-          No se encontraron resultados para la búsqueda actual.
+          No se encontraron sujetos obligados ni regulaciones para la búsqueda actual.
         </div>
       `;
       return;
     }
 
-    const {
-      expandAll = false,
-      activeId = "all"
-    } = options;
-
     content.innerHTML = data.map((section, index) => {
-      const shouldOpen = expandAll || activeId === section.id || (activeId === "all" && index === 0);
+      const shouldOpen = expandAll || index === 0;
 
       return `
         <section class="remure-section" id="${escapeHtml(section.id)}">
           <button
             type="button"
             class="remure-section-toggle ${shouldOpen ? "is-open" : ""}"
-            data-section-toggle
+            data-remure-toggle
             aria-expanded="${shouldOpen ? "true" : "false"}"
           >
             <div class="remure-section-heading">
               <h2>${escapeHtml(section.title)}</h2>
-              <p>${escapeHtml(section.description || "")}</p>
+              <p>Listado de regulaciones asociadas al sujeto obligado.</p>
             </div>
 
             <div class="remure-section-meta">
-              <span class="remure-section-count">${section.items?.length || 0} documentos</span>
+              <span class="remure-section-count">
+                ${section.items.length} regulación${section.items.length === 1 ? "" : "es"}
+              </span>
               <span class="remure-section-icon">${shouldOpen ? "−" : "+"}</span>
             </div>
           </button>
 
           <div class="remure-section-body ${shouldOpen ? "is-open" : ""}">
-            ${buildRows(section.items || [])}
+            ${buildRows(section.items)}
           </div>
         </section>
       `;
@@ -185,123 +190,109 @@ import { remureData } from "../data/remure-data.js";
     bindBulkActions();
   }
 
-  function scrollActiveChipIntoView() {
-    const activeChip = document.querySelector(".remure-chip.is-active");
-    if (!activeChip) return;
+  function updateSummary(filteredData, fullData) {
+    const totalDeps = fullData.length;
+    const totalRegs = fullData.reduce((sum, section) => sum + section.items.length, 0);
 
-    activeChip.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
-  }
+    const depEl = document.getElementById("remureStatDependencias");
+    const regEl = document.getElementById("remureStatRegulaciones");
+    const resultsEl = document.getElementById("remureResultsCount");
 
-  function renderChips(data, activeId, onClick) {
-    const chips = document.getElementById("remureChips");
-    if (!chips) return;
+    if (depEl) depEl.textContent = String(totalDeps);
+    if (regEl) regEl.textContent = String(totalRegs);
 
-    chips.innerHTML = `
-      <button type="button" class="remure-chip ${activeId === "all" ? "is-active" : ""}" data-id="all">
-        Todas
-      </button>
-      ${data.map(section => `
-        <button
-          type="button"
-          class="remure-chip ${activeId === section.id ? "is-active" : ""}"
-          data-id="${escapeHtml(section.id)}"
-        >
-          ${escapeHtml(section.title)}
-        </button>
-      `).join("")}
-    `;
+    if (resultsEl) {
+      const visibleDeps = filteredData.length;
+      const visibleRegs = filteredData.reduce((sum, section) => sum + section.items.length, 0);
 
-    chips.querySelectorAll(".remure-chip").forEach(button => {
-      button.addEventListener("click", () => onClick(button.dataset.id));
-    });
-
-    requestAnimationFrame(scrollActiveChipIntoView);
-  }
-
-  function filterData(data, searchTerm, activeId) {
-    const q = normalizeText(searchTerm);
-
-    let filtered = data;
-
-    if (activeId !== "all") {
-      filtered = filtered.filter(section => section.id === activeId);
+      resultsEl.textContent =
+        `${visibleDeps} sujeto${visibleDeps === 1 ? "" : "s"} obligado${visibleDeps === 1 ? "" : "s"} · ` +
+        `${visibleRegs} regulaci${visibleRegs === 1 ? "ón" : "ones"}`;
     }
-
-    if (!q) return filtered;
-
-    return filtered
-      .map(section => ({
-        ...section,
-        items: (section.items || []).filter(item =>
-          normalizeText(item.nombre || "").includes(q)
-        )
-      }))
-      .filter(section => section.items.length > 0);
   }
 
-  function updateResultsCount(data) {
-    const counter = document.getElementById("remureResultsCount");
-    if (!counter) return;
+  function filterData(data, query) {
+    const q = normalizeText(query);
+    if (!q) return data;
 
-    const total = getTotalItems(data);
-    counter.textContent = `${total} resultado${total === 1 ? "" : "s"}`;
+    return data
+      .map((section) => {
+        const titleMatch = normalizeText(section.title).includes(q);
+
+        const filteredItems = titleMatch
+          ? section.items
+          : section.items.filter((item) => normalizeText(item.nombre).includes(q));
+
+        return {
+          ...section,
+          items: filteredItems
+        };
+      })
+      .filter((section) => section.items.length > 0);
   }
 
-  function initRemurePage() {
-    const baseData = Array.isArray(remureData) ? remureData : [];
+  async function buildDataset() {
+    const ids = Object.keys(remureConfig || {});
+
+    const sections = await Promise.all(ids.map(async (id) => {
+      const configItems = Array.isArray(remureConfig[id]) ? remureConfig[id] : [];
+      const storedData = await dataManager.cargarDatos(id);
+      const storedItems = storedData.regulaciones || {};
+      const orderedNames = buildOrder(
+        configItems,
+        storedItems,
+        storedData.ordenRegulaciones
+      );
+
+      return {
+        id,
+        title: formatDependenciaLabel(id),
+        items: orderedNames.map((name) => ({
+          nombre: name,
+          homoclave: storedItems[name]?.homoclave || "",
+          fecha: storedItems[name]?.fecha || "",
+          documentoUrl: storedItems[name]?.documentoUrl || ""
+        }))
+      };
+    }));
+
+    return sections.sort((a, b) => a.title.localeCompare(b.title, "es"));
+  }
+
+  async function initRemurePage() {
+    const root = document.getElementById("remureContent");
     const searchInput = document.getElementById("remureSearch");
-    const chips = document.getElementById("remureChips");
-    const content = document.getElementById("remureContent");
     const clearBtn = document.getElementById("remureClearSearch");
 
-    if (!chips || !content) return;
+    if (!root) return;
 
-    let activeId = "all";
-    let searchTerm = "";
+    root.innerHTML = `<div class="remure-empty">Cargando estructura REMURE...</div>`;
+
+    const fullData = await buildDataset();
+    let query = "";
 
     function update() {
-      const filtered = filterData(baseData, searchTerm, activeId);
-      const sorted = sortFilteredData(filtered);
-      const hasSearch = !!searchTerm.trim();
-
-      renderChips(baseData, activeId, (nextId) => {
-        activeId = nextId;
-        update();
-      });
-
-      renderSections(sorted, {
-        expandAll: hasSearch,
-        activeId
-      });
-
-      updateResultsCount(sorted);
+      const filtered = filterData(fullData, query);
+      renderSections(filtered, !!query.trim());
+      updateSummary(filtered, fullData);
 
       if (clearBtn) {
-        clearBtn.disabled = !searchTerm.trim() && activeId === "all";
+        clearBtn.disabled = !query.trim();
       }
     }
 
     if (searchInput) {
       searchInput.value = "";
       searchInput.addEventListener("input", (event) => {
-        searchTerm = event.target.value || "";
+        query = event.target.value || "";
         update();
       });
     }
 
     if (clearBtn) {
       clearBtn.addEventListener("click", () => {
-        searchTerm = "";
-        activeId = "all";
-
-        if (searchInput) {
-          searchInput.value = "";
-        }
-
+        query = "";
+        if (searchInput) searchInput.value = "";
         update();
       });
     }

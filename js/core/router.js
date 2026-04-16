@@ -61,6 +61,11 @@ const ROUTE_CONFIG = [
     js: ["js/components/remure.js"]
   },
   {
+    match: (route) => route.includes("components/sections/mejora/sections-catalogo/remure-captura.html"),
+    css: ["css/sections/sections-catalogo/remure-captura.css"],
+    js: ["js/components/remure-captura.js"]
+  },
+  {
     match: (route) => route.includes("components/sections/mejora/sections-catalogo/remuvid.html"),
     css: ["css/sections/sections-catalogo/remuvid.css"],
     js: []
@@ -311,6 +316,13 @@ function initDynamicSections() {
     ) {
       initVentanillaPresencialAccordion();
     }
+  
+    if (
+    document.getElementById("remureCapturaForm") &&
+    typeof window.initRemureCapturaPage === "function"
+  ) {
+    window.initRemureCapturaPage();
+  }
   }
 
 /* ===================== */

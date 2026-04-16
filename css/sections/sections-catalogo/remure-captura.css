@@ -1,0 +1,259 @@
+.remure-captura-page {
+  padding: 56px 0 64px;
+}
+
+.remure-captura-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.remure-captura-intro {
+  max-width: 920px;
+  margin: 0 auto;
+  color: #5c6b70;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.remure-captura-toolbar,
+.remure-captura-list-card,
+.remure-captura-form-card {
+  background: #fff;
+  border: 1px solid #e1e7e9;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+.remure-captura-toolbar {
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.remure-captura-toolbar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.remure-captura-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 22px;
+}
+
+.remure-captura-list-card,
+.remure-captura-form-card {
+  padding: 22px;
+}
+
+.remure-captura-card-head {
+  margin-bottom: 18px;
+}
+
+.remure-captura-card-head h2 {
+  margin: 0 0 6px;
+  color: #025361;
+  font-size: 22px;
+}
+
+.remure-captura-card-head p {
+  margin: 0;
+  color: #6a7a80;
+  line-height: 1.5;
+}
+
+.remure-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.remure-field span {
+  color: #025361;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.remure-field input,
+.remure-field select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #d6e1e4;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #334246;
+  background: #fbfcfc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.remure-field input:focus,
+.remure-field select:focus {
+  background: #fff;
+  border-color: #025361;
+  box-shadow: 0 0 0 3px rgba(0, 84, 97, 0.12);
+}
+
+.remure-captura-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 620px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.remure-captura-item {
+  border: 1px solid #e6ecee;
+  border-radius: 14px;
+  background: #fbfcfc;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.remure-captura-item.is-active {
+  border-color: #025361;
+  background: #f2f8f9;
+}
+
+.remure-captura-item-button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  color: #334246;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.remure-captura-item-button:hover {
+  transform: translateY(-1px);
+}
+
+.remure-captura-empty {
+  padding: 18px;
+  border: 1px dashed #d3dde0;
+  border-radius: 14px;
+  background: #fbfcfc;
+  text-align: center;
+  color: #607277;
+}
+
+.remure-captura-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.remure-captura-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.remure-captura-order-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid #e6ecee;
+  border-radius: 16px;
+  background: #fbfcfc;
+}
+
+.remure-order-label {
+  color: #025361;
+  font-weight: 700;
+}
+
+.remure-order-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.remure-primary-btn,
+.remure-secondary-btn,
+.remure-clear-btn,
+.remure-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.remure-primary-btn {
+  border: 1px solid #025361;
+  background: #025361;
+  color: #fff;
+}
+
+.remure-primary-btn:hover {
+  background: #014854;
+  border-color: #014854;
+  transform: translateY(-1px);
+}
+
+.remure-secondary-btn,
+.remure-clear-btn,
+.remure-link-btn {
+  border: 1px solid #d6e1e4;
+  background: #fff;
+  color: #025361;
+}
+
+.remure-secondary-btn:hover,
+.remure-clear-btn:hover,
+.remure-link-btn:hover {
+  background: #f3f8f9;
+  border-color: #025361;
+  transform: translateY(-1px);
+}
+
+.remure-captura-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.remure-captura-status {
+  min-height: 24px;
+  margin: 0;
+  color: #4e5f64;
+  font-size: 14px;
+}
+
+.remure-captura-note {
+  margin: 14px auto 0;
+  max-width: 920px;
+  color: #6a7a80;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.remure-secondary-btn:disabled,
+.remure-clear-btn:disabled,
+.remure-primary-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 960px) {
+  .remure-captura-layout,
+  .remure-captura-toolbar-grid,
+  .remure-captura-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

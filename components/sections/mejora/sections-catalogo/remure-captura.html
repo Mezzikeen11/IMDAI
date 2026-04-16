@@ -1,0 +1,106 @@
+<section class="remure-captura-page">
+  <div class="container">
+    <div class="remure-captura-hero">
+    <p class="seccion-etiqueta">Mejora Regulatoria</p>
+    <h1 class="titulo-principal">Captura interna del Registro Municipal de Regulaciones</h1>
+    <p class="remure-captura-intro">
+      Administra la información complementaria de cada regulación del REMURE, incluyendo homoclave, fecha de aprobación, enlace del documento y orden de visualización.
+    </p>
+  </div>
+    <p class="remure-captura-note">
+      Este módulo es de uso interno para captura y actualización manual de información complementaria.
+    </p>
+
+    <section class="remure-captura-toolbar">
+      <div class="remure-captura-toolbar-grid">
+        <label class="remure-field">
+          <span>Sujeto obligado</span>
+          <select id="remureCapturaDependencia"></select>
+        </label>
+
+        <label class="remure-field">
+          <span>Buscar regulación</span>
+          <input
+            type="search"
+            id="remureCapturaSearch"
+            placeholder="Buscar regulación dentro del sujeto obligado"
+          />
+        </label>
+      </div>
+    </section>
+
+    <section class="remure-captura-layout">
+      <aside class="remure-captura-list-card">
+        <div class="remure-captura-card-head">
+          <h2>Regulaciones</h2>
+          <p id="remureCapturaListCount">0 elementos</p>
+        </div>
+
+        <div id="remureCapturaList" class="remure-captura-list"></div>
+      </aside>
+
+      <section class="remure-captura-form-card">
+        <div class="remure-captura-card-head">
+          <h2>Edición</h2>
+          <p id="remureCapturaSelectedName">Selecciona una regulación</p>
+        </div>
+
+        <form id="remureCapturaForm" class="remure-captura-form">
+          <label class="remure-field">
+            <span>Nombre de la regulación</span>
+            <input type="text" id="remureCapturaNombre" readonly />
+          </label>
+
+          <label class="remure-field">
+            <span>URL del documento PDF</span>
+            <input
+              type="url"
+              id="remureCapturaDocumentoUrl"
+              placeholder="https://ejemplo.com/documento.pdf"
+            />
+          </label>
+
+          <div class="remure-captura-form-grid">
+            <label class="remure-field">
+              <span>Homoclave</span>
+              <input type="text" id="remureCapturaHomoclave" placeholder="Ej. SG-001" />
+            </label>
+
+            <label class="remure-field">
+              <span>Fecha de aprobación</span>
+              <input type="date" id="remureCapturaFecha" />
+            </label>
+          </div>
+
+          <div class="remure-captura-order-box">
+            <span class="remure-order-label">Orden</span>
+            <div class="remure-order-actions">
+              <button type="button" class="remure-secondary-btn" id="remureMoveUp">
+                Subir
+              </button>
+              <button type="button" class="remure-secondary-btn" id="remureMoveDown">
+                Bajar
+              </button>
+            </div>
+          </div>
+
+          <div class="remure-captura-actions">
+            <button type="submit" class="remure-primary-btn">Guardar cambios</button>
+            <button type="button" class="remure-clear-btn" id="remureCapturaReset">
+              Limpiar campos
+            </button>
+            <a
+              href="#"
+              class="remure-secondary-btn remure-link-btn"
+              onclick="navigateTo('components/sections/mejora/sections-catalogo/remure.html'); return false;"
+            >
+              Ver módulo público
+            </a>
+          </div>
+
+          <p class="remure-captura-status" id="remureCapturaStatus" aria-live="polite"></p>
+        </form>
+      </section>
+    </section>
+  </div>
+</section>

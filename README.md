@@ -8,6 +8,7 @@ Este proyecto se encuentra en una fase enfocada en:
 
 - rediseño visual y consolidación del front-end
 - organización modular de vistas, estilos y scripts
+- integración de módulos documentales y de consulta con soporte para estructuras de datos escalables
 - definición de bases técnicas y documentales para futuras integraciones
 - preparación estructural para una posterior implementación de backend por parte del equipo institucional autorizado
 
@@ -22,6 +23,7 @@ El objetivo es dejar:
 - componentes reutilizables
 - secciones listas para integración futura
 - bases técnicas claras para documentación, conexión y mantenimiento posterior
+- mecanismos temporales de persistencia local para validación funcional de módulos internos
 
 ## Arquitectura general
 
@@ -35,6 +37,7 @@ El flujo general es:
 4. Cada vista se inserta dinámicamente dentro de `#app`.
 5. El router carga el CSS y JS específicos de cada sección cuando corresponde.
 6. Algunos módulos consumen datasets locales definidos en `js/data/`.
+7. Algunos flujos internos utilizan `localStorage` como mecanismo temporal de persistencia para pruebas funcionales y validación de interfaz.
 
 ## Tecnologías utilizadas
 
@@ -42,7 +45,7 @@ El flujo general es:
 - CSS3
 - JavaScript ES Modules
 - Fetch API
-- Session Storage
+- Local Storage
 - WebHint (`.hintrc`) para validación técnica
 
 ## Estructura del proyecto
@@ -84,6 +87,9 @@ IMDAI/
 │       │   ├── que-es.html
 │       │   ├── sistema.html
 │       │   ├── sections-catalogo/
+│       │   │   ├── remure.html
+│       │   │   ├── remure-captura.html
+│       │   │   └── ...
 │       │   ├── sections-sistema/
 │       │   └── ...
 │       ├── nosotros/
@@ -111,6 +117,9 @@ IMDAI/
 │       ├── mejora.css
 │       ├── nosotros.css
 │       ├── sections-catalogo/
+│       │   ├── remure.css
+│       │   ├── remure-captura.css
+│       │   └── ...
 │       ├── sections-sistema/
 │       ├── sistema.css
 │       └── ventanilla.css
@@ -129,12 +138,17 @@ IMDAI/
     │   ├── remtys-detalle.js
     │   ├── remtys.js
     │   ├── remure.js
+    │   ├── remure-captura.js
     │   └── ventanilla.js
-    └── data/
-        ├── estructura-data.js
-        ├── manuales-organizacion-data.js
-        ├── manuales-procedimientos-data.js
-        ├── protocolos-data.js
-        ├── remtys-categorias-data.js
-        ├── remtys-items-data.js
-        └── remure-data.js
+    ├── data/
+    │   ├── estructura-data.js
+    │   ├── manuales-organizacion-data.js
+    │   ├── manuales-procedimientos-data.js
+    │   ├── protocolos-data.js
+    │   ├── remtys-categorias-data.js
+    │   ├── remtys-items-data.js
+    │   ├── remure-config.js
+    │   ├── remure-storage.js
+    │   └── remure-data.js
+    └── utils/
+        └── remure-format.js
